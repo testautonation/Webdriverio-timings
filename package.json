@@ -1,23 +1,27 @@
 {
-  "name": "wdio-test",
+  "name": "wdio-timings",
   "version": "1.0.0",
   "description": "WebdriverIO test",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js",
-    "appium": "./node_modules/.bin/wdio wdio.appium.conf.js --port 4723"
+    "appium": "./node_modules/.bin/wdio wdio.appium.conf.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "appium": "^1.7.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.0.5",
     "webdriverio": "^4.12.0"
   },
   "devDependencies": {
+    "timings-client-js": "^1.0.10",
     "wdio-appium-service": "^0.2.3",
     "wdio-chromedriver-service": "^0.1.2",
     "wdio-mocha-framework": "^0.5.13",
     "wdio-selenium-standalone-service": "0.0.9",
-    "wdio-spec-reporter": "^0.1.4"
+    "wdio-spec-reporter": "^0.1.4",
+    "wdio-sauce-service": "^0.4.8"
   }
 }
