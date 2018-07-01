@@ -5,23 +5,25 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js",
-    "appium": "./node_modules/.bin/wdio wdio.appium.conf.js"
+    "appium": "./node_modules/.bin/wdio wdio.appium.conf.js --port 4723"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "appium": "^1.7.2",
+    "appium": "^1.8.1",
     "chai": "^4.1.2",
-    "mocha": "^5.0.5",
-    "webdriverio": "^4.12.0"
+    "chromedriver": "^2.40.0",
+    "mocha": "^5.2.0",
+    "npm": "^5.10.0",
+    "webdriverio": "^4.13.0"
   },
   "devDependencies": {
-    "timings-client-js": "^1.0.10",
+    "timings-client-js": "^1.1.0",
     "wdio-appium-service": "^0.2.3",
-    "wdio-chromedriver-service": "^0.1.2",
+    "wdio-chromedriver-service": "^0.1.3",
     "wdio-mocha-framework": "^0.5.13",
-    "wdio-selenium-standalone-service": "0.0.9",
-    "wdio-spec-reporter": "^0.1.4",
-    "wdio-sauce-service": "^0.4.8"
+    "wdio-sauce-service": "^0.4.9",
+    "wdio-selenium-standalone-service": "^0.0.10",
+    "wdio-spec-reporter": "^0.1.4"
   }
 }
