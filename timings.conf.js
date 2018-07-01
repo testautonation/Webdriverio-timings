@@ -12,7 +12,7 @@ module.exports = {
         },
         "flags": {
             "assertBaseline": true,
-            "debug": false,
+            "debug": true,
             "esTrace": false,
             "esCreate": true,
             "passOnFailedAssert": false
