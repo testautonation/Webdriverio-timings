@@ -58,7 +58,7 @@ exports.config = {
     sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'silent',
+    logLevel: 'error',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -163,8 +163,11 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function() {
+        let chai = require('chai');
+        global.expect = chai.expect;
+        chai.Should();
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -244,4 +247,4 @@ exports.config = {
      */
     // onComplete: function(exitCode, config, capabilities) {
     // }
-}
+};

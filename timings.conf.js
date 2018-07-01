@@ -1,9 +1,9 @@
 module.exports = {
     "PERF_API_URL": "http://localhost/v2/api/cicd/",
-    "api_timeout": 2000,
+    "api_timeout": 3000,
     "api_params": {
         "sla": {
-            "pageLoadTime": 500
+            "pageLoadTime": 1000
         },
         "baseline": {
             "days": 7,

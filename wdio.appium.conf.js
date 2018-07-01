@@ -170,8 +170,11 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function() {
+        let chai = require('chai');
+        global.expect = chai.expect;
+        chai.Should();
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
@@ -214,9 +217,9 @@ exports.config = {
             return;
         }
         // get current test title and clean it, to use it as file name
-        var filename = encodeURIComponent(test.title.replace(/\s+/g, '-'));
+        let filename = encodeURIComponent(test.title.replace(/\s+/g, '-'));
         // build file path
-        var filePath = this.screenshotPath + filename + '.png';
+        let filePath = this.screenshotPath + filename + '.png';
         // save screenshot
         browser.saveScreenshot(filePath);
         console.log('\n\tScreenshot location:', filePath, '\n');
