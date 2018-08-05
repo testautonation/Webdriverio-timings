@@ -2,10 +2,10 @@ const assert = require('assert');
 const timings = require('timings-client-js');
 const perf = new timings.PUtils('timings.conf.js');
 
-describe('WebdriverIO Navigation Links', () => {
-    it('should go to Developer Guide page when choosing Developer Guide link', async () => {
+describe('WebdriverIO Navigation Links', async function () {
+    it('should go to Developer Guide page when choosing Developer Guide link', async function () {
 
-        const perfParams = perf.getApiParams({}); //you can overwrite values in perf.js
+        const perfParams = perf.getApiParams({sla: {visualCompleteTime: 1000}}); //you can overwrite values in perf.js
         const injectJs = await perf.getInjectJS('navtiming', 'visual_complete', true); //Request inject code from API - `true` = strip querystring
         const injectCode = injectJs.data.inject_code;
         const injectCodeResponse = await browser
@@ -23,16 +23,16 @@ describe('WebdriverIO Navigation Links', () => {
 
         if (navtimingResponse.data) {
             const apiResponse = navtimingResponse.data; // Grab the API's response - has the assert field!
-            expect(apiResponse.assert, 'Performance failed! assert field is False \nNavtiming: '+JSON.stringify(apiResponse.export.perf, null, 2)).to.be.true; // Assert the result!
+            expect(apiResponse.assert, 'Performance failed! assert field is False \nNavtiming: ' + JSON.stringify(apiResponse.export.perf, null, 2)).to.be.true; // Assert the result!
         } else {
             console.error('API error: ' + JSON.stringify(navtimingResponse, null, 2));
         }
 
-    }, 2);
+    });
 
     it('should go to API page when choosing API link', async function () {
 
-        const perfParams = perf.getApiParams({}); //overwrite values in perf.js
+        const perfParams = perf.getApiParams({sla: {visualCompleteTime: 1000}});
         const injectJs = await perf.getInjectJS('navtiming', 'visual_complete', true);
         const injectCode = injectJs.data.inject_code;
         const injectCodeResponse = await browser
@@ -51,14 +51,14 @@ describe('WebdriverIO Navigation Links', () => {
 
         if (navtimingResponse.data) {
             const apiResponse = navtimingResponse.data;
-            expect(apiResponse.assert, 'Performance failed! assert field is False \nNavtiming: '+JSON.stringify(apiResponse.export.perf, null, 2)).to.be.true;
+            expect(apiResponse.assert, 'Performance failed! assert field is False \nNavtiming: ' + JSON.stringify(apiResponse.export.perf, null, 2)).to.be.true;
         } else {
             console.error('API error: ' + JSON.stringify(navtimingResponse, null, 2));
         }
-    }, 2);
+    });
 
     it('should go to Contribute page when choosing Contribute link', async function () {
-        const perfParams = perf.getApiParams({});
+        const perfParams = perf.getApiParams({sla: {visualCompleteTime: 1000}});
         const injectJs = await perf.getInjectJS('navtiming', 'visual_complete', true); //Request inject code from API - `true` = strip querystring
         const injectCode = injectJs.data.inject_code;
 
@@ -77,14 +77,14 @@ describe('WebdriverIO Navigation Links', () => {
 
         if (navtimingResponse.data) {
             const apiResponse = navtimingResponse.data;
-            expect(apiResponse.assert, 'Performance failed! assert field is False \nNavtiming: '+JSON.stringify(apiResponse.export.perf, null, 2)).to.be.true;
+            expect(apiResponse.assert, 'Performance failed! assert field is False \nNavtiming: ' + JSON.stringify(apiResponse.export.perf, null, 2)).to.be.true;
         } else {
             console.error('API error: ' + JSON.stringify(navtimingResponse, null, 2));
         }
     }, 2);
 
     it('should go to Home page when choosing Home link', async function () {
-        const perfParams = perf.getApiParams({});
+        const perfParams = perf.getApiParams({sla: {visualCompleteTime: 1000}});
         const injectJs = await perf.getInjectJS('navtiming', 'visual_complete', true);
         const injectCode = injectJs.data.inject_code;
 
@@ -103,9 +103,10 @@ describe('WebdriverIO Navigation Links', () => {
 
         if (navtimingResponse.data) {
             const apiResponse = navtimingResponse.data;
-            expect(apiResponse.assert, 'Performance failed! assert field is False \nNavtiming: '+JSON.stringify(apiResponse.export.perf, null, 2)).to.be.true;
+            expect(apiResponse.assert, 'Performance failed! assert field is False \nNavtiming: ' + JSON.stringify(apiResponse.export.perf, null, 2)).to.be.true;
         } else {
             console.error('API error: ' + JSON.stringify(navtimingResponse, null, 2));
         }
-    }, 2);
+    });
+
 });
