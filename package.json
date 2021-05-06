@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "appium": "^1.8.1",
+    "appium": "^1.18.0",
     "chai": "^4.1.2",
     "chromedriver": "^2.40.0",
     "mocha": "^5.2.0",
