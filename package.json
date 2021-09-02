@@ -14,7 +14,7 @@
     "chai": "^4.1.2",
     "chromedriver": "^2.40.0",
     "mocha": "^5.2.0",
-    "npm": "^6.3.0",
+    "npm": "^6.10.1",
     "webdriverio": "^4.13.1"
   },
   "devDependencies": {
